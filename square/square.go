@@ -1,6 +1,6 @@
 package square
 
 // Square returns the square of given number
-func Square(a int, b int) int {
-	return a * b
+func Square(a int) int {
+	return a * a
 }
