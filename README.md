@@ -4,8 +4,8 @@
 
 Solved "No merged release PR found" with above solution
 
-1. git checkout -b release-v0.0.1
-2. git commit --allow-empty -m "chore: release 0.0.1"
-3. Create and merge PR
-4. Subsequent merged PRs will create the release PR
+1. `git checkout -b release-v0.0.1`
+2. `git commit --allow-empty -m "chore: release 0.0.1"`
+3. Create and merge PR.
+4. Subsequent merged PRs will create the release PR.
 5. Profit!
