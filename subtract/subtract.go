@@ -1,6 +1,6 @@
 package subtract
 
-// Sub returns the subtraction of 2 numbers
+// Subtract subtracts 2 numbers and returns the result
 func Subtract(a int, b int) int {
 	return a - b
 }
