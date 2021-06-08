@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.2.2](https://www.github.com/atreya2011/go-mod-renshuu/compare/v0.2.1...v0.2.2) (2021-06-08)
+
+
+### Bug Fixes
+
+* try github scripts to createWorkflowDispatch ([232cf4d](https://www.github.com/atreya2011/go-mod-renshuu/commit/232cf4d5e84a71e17ae2718f664141af3265752b))
+
 ### [0.2.1](https://www.github.com/atreya2011/go-mod-renshuu/compare/v0.2.0...v0.2.1) (2021-06-08)
 
 
