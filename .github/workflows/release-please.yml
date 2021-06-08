@@ -14,3 +14,13 @@ jobs:
         id: release
         with:
           release-type: simple
+      - name: Deploy dev
+        if: ${{ steps.release.outputs.release_created }}
+        run: |
+          curl -X POST \
+            -H "Authorization: Bearer ${TOKEN}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/atreya2011/go-mod-renshuu/actions/workflows/deploy.yml/dispatches \
+            -d '{"ref":"refs/tags/v*"}'
+        env:
+          TOKEN: ${{ github.token }}

@@ -2,11 +2,7 @@ on:
   push:
     tags:
       - 'v*'
-  workflow_run:
-    workflows:
-      - release-please
-    types:
-      - completed
+  workflow_dispatch:
 
 name: deploy
 
@@ -14,7 +10,6 @@ jobs:
   build:
     name: Deploy
     runs-on: ubuntu-latest
-    if: ${{ jobs.release-please.steps.release.outputs.release_created }}
     steps:
       - name: Set up Go 1.16
         uses: actions/setup-go@v2
