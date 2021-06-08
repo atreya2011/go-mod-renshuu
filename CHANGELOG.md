@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.2.1](https://www.github.com/atreya2011/go-mod-renshuu/compare/v0.2.0...v0.2.1) (2021-06-08)
+
+
+### Bug Fixes
+
+* actions ([61fce84](https://www.github.com/atreya2011/go-mod-renshuu/commit/61fce84315e99ce30a8c2621ee6e4380bd19b35c))
+
 ## [0.2.0](https://www.github.com/atreya2011/go-mod-renshuu/compare/v0.1.0...v0.2.0) (2021-06-08)
 
 
