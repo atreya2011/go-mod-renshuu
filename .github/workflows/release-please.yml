@@ -38,6 +38,6 @@ jobs:
             await github.actions.createWorkflowDispatch({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              workflow_id: 'deploy.yml'
-              ref,
+              workflow_id: 'deploy.yml',
+              ref
             });
