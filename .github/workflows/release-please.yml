@@ -14,13 +14,30 @@ jobs:
         id: release
         with:
           release-type: simple
+      # - name: Deploy dev
+      #   if: ${{ steps.release.outputs.release_created }}
+      #   run: |
+      #     curl -X POST \
+      #       -H "Authorization: Bearer ${TOKEN}" \
+      #       -H "Accept: application/vnd.github.v3+json" \
+      #       https://api.github.com/repos/atreya2011/go-mod-renshuu/actions/workflows/deploy.yml/dispatches \
+      #       -d '{"ref":"refs/tags/v*"}'
+      #   env:
+      #     TOKEN: ${{ github.token }}
       - name: Deploy dev
         if: ${{ steps.release.outputs.release_created }}
-        run: |
-          curl -X POST \
-            -H "Authorization: Bearer ${TOKEN}" \
-            -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/atreya2011/go-mod-renshuu/actions/workflows/deploy.yml/dispatches \
-            -d '{"ref":"refs/tags/v*"}'
+        uses: actions/github-script@v4
         env:
-          TOKEN: ${{ github.token }}
+          TAG_NAME: ${{ steps.release.outputs.tag_name }}
+        with:
+          github-token: ${{ secrets.ACTION_TOKEN }}
+          script: |
+            const { TAG_NAME } = process.env
+            const ref = `refs/tags/${TAG_NAME}`
+            console.log(ref)
+            await github.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'deploy.yml'
+              ref,
+            });
